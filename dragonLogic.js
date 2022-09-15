@@ -15,6 +15,7 @@ let times = [];
 var angels = 0;
 var pickaxe = 0;
 var guessCount = 0;
+var secretString = "";
 document.addEventListener('keydown', function (event) {
     keydown = event.key;
     console.log(keydown);
@@ -55,7 +56,11 @@ function play(guess) {
             secret = Math.floor(Math.random() * 2) + 1;
             guessCount = 1;
         }
-        
+        if (secret == 1){
+            secretString = "left";
+        } else {
+            secretString = "right";
+        }
         console.log()
         if (guess != 1 && guess != 2) {
             document.getElementById("msg_gold").style.display = "none";
@@ -78,9 +83,13 @@ function play(guess) {
     
         secret = Math.floor(Math.random() * 2) + 1;
         if (angels !== 0){
-            console.log ("Choose "+ secret);
+            document.getElementById("msg_angel").innerHTML = "Choose "+ secret;
+            document.getElementById("msg_angel").style.display = "block";
+            timesAdd(10000,"msg_angel_delete");
             angels --;
-        } 
+        } else{
+            document.getElementById("msg_angel").style.display = "none";   
+        }
     }
     
 }
@@ -277,7 +286,9 @@ setInterval(function () {
                 document.getElementById("msg_lose").style.display = "none";
             } else if (times[i].instruction == "msg_win_delete"){
                 document.getElementById("msg_win").style.display = "none";
-            } 
+            } else if (times[i].instruction == "msg_angel_delete"){
+                document.getElementById("msg_angel").style.display = "none";
+            }
             times.splice(i, 1);
             
         }
