@@ -31,15 +31,22 @@ document.addEventListener('keydown', function (event) {
         console.table(times);
     
     }
+    if (keydown == "ArrowLeft"){
+        play(1);
+    }
+    if (keydown == "ArrowRight"){
+        play(2);
+    }
+    if (keydown == "Meta"){
+        console.log(Date.now())
+    }
 });
 
-function play() {
+function play(guess) {
     if (guessCount == 0){
         secret = Math.floor(Math.random() * 2) + 1;
         guessCount = 1;
     }
-   
-    guess = document.getElementById("guessinput").value;
     
     console.log()
     if (guess != 1 && guess != 2) {
@@ -81,7 +88,7 @@ function product(num) {
                 hp += 1;
             } else {
                 document.getElementById("msg_tooExpensive").style.display = "block";
-                timesAdd(mili=1000,instruct ="msg_tooExpensive_delete");
+                timesAdd(1000,"msg_tooExpensive_delete");
             } 
     }
     if (num == 2) {
@@ -90,7 +97,7 @@ function product(num) {
             hp += 2;
         } else {
             document.getElementById("msg_tooExpensive").style.display = "block";
-            timesAdd(mili=1000,instruct ="msg_tooExpensive_delete");
+            timesAdd(1000,"msg_tooExpensive_delete");
         }   
     }
     if (num == 3) {
@@ -110,7 +117,7 @@ function product(num) {
             { instance: Date.now() + 21000, instruction: "hpAdd1" },
             ]);} else{
                 document.getElementById("msg_tooExpensive").style.display = "block";
-                timesAdd(mili=1000,instruct ="msg_tooExpensive_delete");
+                timesAdd(1000,"msg_tooExpensive_delete");
             }
         
     }
@@ -163,7 +170,7 @@ function product(num) {
             ]);
         } else{
             document.getElementById("msg_tooExpensive").style.display = "block";
-            timesAdd(mili=1000,instruct ="msg_tooExpensive_delete");
+            timesAdd(1000,"msg_tooExpensive_delete");
         }
         
     } if (num == 5){
@@ -176,7 +183,7 @@ function product(num) {
             }
         } else {
             document.getElementById("msg_tooExpensive").style.display = "block";
-            timesAdd(mili=1000,instruct ="msg_tooExpensive_delete");
+            timesAdd(1000,"msg_tooExpensive_delete");
         }
         
     } if (num == 6){
@@ -185,7 +192,7 @@ function product(num) {
         pickaxe = 1000000;
         } else{
             document.getElementById("msg_tooExpensive").style.display = "block";
-            timesAdd(mili=1000,instruct ="msg_tooExpensive_delete");
+            timesAdd(1000,"msg_tooExpensive_delete");
         }  
     }
 }
@@ -205,6 +212,22 @@ setInterval(function () {
     if (hp > 50){
         hp = 50;
     }
+    if(hp < 0){
+        hp = 0;
+    }
+    if(au < 0){
+        au = 0;
+    }
+    if (hp <= 0 && set == "null") {
+        set = "lose";
+        document.getElementById("msg_lose").style.display = "block";
+        timesAdd(1000,"msg_lose_delete");
+    } else if (au >= 50 && set == "null") {
+        set = "win";
+        document.getElementById("msg_win").style.display = "block";
+        timesAdd(1000,"msg_win_delete")
+    }
+    console.log("Time");
     if (pickaxe !== 0){
         if (hp <= 0 && set !== "win") {
             set = "lose"
@@ -223,11 +246,9 @@ setInterval(function () {
             }
         }
         pickaxe --;
-    }t
-    
+    }
     for (var i = 0; i < times.length; i++) {
-        if ( Date.now() >= times[i].instance) {
-            console.log("Time");
+        if (Date.now() >= times[i].instance) {
             if (times[i].instruction == "hpAdd1") {
                 hp += 1;
             } else if (times[i].instruction == "hpAdd2") {
