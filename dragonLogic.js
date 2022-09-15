@@ -85,7 +85,7 @@ function play(guess) {
         if (angels !== 0){
             document.getElementById("msg_angel").innerHTML = "Choose "+ secret;
             document.getElementById("msg_angel").style.display = "block";
-            timesAdd(10000,"msg_angel_delete");
+            timesAdd(3000,"msg_angel_delete");
             angels --;
         } else{
             document.getElementById("msg_angel").style.display = "none";   
@@ -263,6 +263,8 @@ setInterval(function () {
                 } else {
                     au++;
                     console.log("You struck it rich!");
+                    document.getElementById("msg_rich").style.display = "block";
+                    timesAdd(1000,"msg_rich_delete");
                 }
             }
             pickaxe --;
@@ -288,6 +290,8 @@ setInterval(function () {
                 document.getElementById("msg_win").style.display = "none";
             } else if (times[i].instruction == "msg_angel_delete"){
                 document.getElementById("msg_angel").style.display = "none";
+            } else if (times[i].instruction == "msg_rich_delete"){
+                document.getElementById("msg_rich").style.display = "none";
             }
             times.splice(i, 1);
             
