@@ -115,7 +115,8 @@ function product(num) {
         
     }
     if (num == 4){
-        if(au >= 10){
+        if(au >= 30){
+            au -= 30;
             times = times.concat([
             { instance: Date.now() + 1000, instruction: "hpAdd2" },
             { instance: Date.now() + 2000, instruction: "hpAdd2" },
