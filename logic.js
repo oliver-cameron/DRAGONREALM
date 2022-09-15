@@ -201,11 +201,10 @@ function timesAdd(mili,instruct){
 }
 
 setInterval(function () {
-    document.getElementById("time").innerHTML = times;
     hpb.style.width = (hp)*2 + "%";
-    hpb.innerHTML = hp + " health";
+    hpb.innerHTML = hp;
     aub.style.width = (au)*2 + "%";
-    aub.innerHTML = au + " gold";
+    aub.innerHTML = au;
     if (au > 50){
         au = 50;
     }
@@ -242,7 +241,7 @@ setInterval(function () {
                 au = 50;
             } else {
                 au++;
-                console.log("You struck it rich!")
+                console.log("You struck it rich!");
             }
         }
         pickaxe --;
@@ -261,6 +260,10 @@ setInterval(function () {
                 document.getElementById("msg_tooExpensive").style.display = "none";
             } else if (times[i].instruction == "msg_gold_delete"){
                 document.getElementById("msg_gold").style.display = "none";
+            }  else if (times[i].instruction == "msg_lose_delete"){
+                document.getElementById("msg_lose").style.display = "none";
+            } else if (times[i].instruction == "msg_win_delete"){
+                document.getElementById("msg_win").style.display = "none";
             } 
             times.splice(i, 1);
             
