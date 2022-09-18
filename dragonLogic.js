@@ -32,19 +32,12 @@ var secretString = "";
 let inventory = {Med: 0, Med2: 0, DragBlood: 0 ,EldDragBlood: 0, Angel: 0, Pick: 0};
 document.addEventListener('keydown', function (event) {
     keydown = event.key;
-    console.log(keydown);
+    //console.log(keydown);
     if (keydown == "s") {
         modal.style.display = "block";
     }
     if (keydown == "b") {
         modal.style.display = "none";
-    }
-    if (keydown == "Enter"){
-        play()
-    }
-    if (keydown == "t"){
-        console.table(times);
-    
     }
     if (keydown == "ArrowLeft"){
         play(1);
@@ -52,7 +45,7 @@ document.addEventListener('keydown', function (event) {
     if (keydown == "ArrowRight"){
         play(2);
     }
-    if (keydown == "˘"){
+    if (keydown == "r"){
         keydown = [];
         hp = 50;
         au = 0;
@@ -66,10 +59,10 @@ document.addEventListener('keydown', function (event) {
         let inventory = {Med: 0, Med2: 0, DragBlood: 0 ,EldDragBlood: 0, Angel: 0, Pick: 0}
     }
     if (keydown == "a"){
-        console.log(document.getElementById("healthProgress").offsetWidth);
+        play(1);
     }
-    if (keydown == "i"){
-        console.log(inventory.Angel);
+    if (keydown == "d"){
+        play(1);
     }
 });
 
