@@ -258,14 +258,45 @@ label {
   text-align: center;
   line-height: 30px;
   color: white;
+  border-radius: 10px 10px 0px 0px;
 }
-
+#inventory_backround{
+  width: 100%;
+  height: 60px;
+  position: relative;
+  bottom: 30px;
+  left: 100%;
+  background-color: rgb(55, 55, 55);
+  border-radius: 10px;
+}
+.inventory_square{
+  border: #000;
+  border-width: 2px;
+  border-radius: 15px;
+  background-color: #ffffff;
+  position: absolute;
+  height: 60px;
+  width: 60px;
+  left: 171.4px;
+  color:black;
+  text-align: right;
+  vertical-align: middle; 
+}
+.inventoryText{
+  color: #040505;
+  position: absolute;
+  bottom: 0px;
+  right: 8px;
+  font-size: 10;
+}
 #goldBar {
+  border-radius: 0px 0px 10px 10px;
   width: 50%;
   height: 30px;
   background-color:var(--yellow);
 }
 #goldProgress {
+  border-radius: 0px 0px 10px 10px;
   width: 50%;
   height: 30px;
   background-color:var(--gray-dark);
@@ -275,6 +306,7 @@ label {
 }
 
 #healthBar {
+  border-radius: 10px 10px 0px 0px;
   width: 50%;
   height: 30px;
   background-color:var(--red);
@@ -2797,11 +2829,12 @@ select.form-control-lg:not([size]):not([multiple]) {
   -moz-user-select: none;
   -ms-user-select: none;
   user-select: none;
-  border: 1px solid transparent;
   padding: .375rem .75rem;
   font-size: 1rem;
   line-height: 1.5;
-  border-radius: .25rem;
+  border-radius: 25px;
+  border: #000;
+  border-width: 8px 8px 8px 8px;
   transition: color .15s ease-in-out, background-color .15s ease-in-out, border-color .15s ease-in-out, box-shadow .15s ease-in-out
 }
 
@@ -2836,14 +2869,16 @@ fieldset:disabled a.btn {
 }
 
 .btn-primary {
-  color: #fff;
-  background-color: #007bff;
+  width: 78px;
+  height: 78px;
+  color: #000;
+  background-color: #f1f1f1;
   border-color: #007bff
 }
 
 .btn-primary:hover {
   color: #fff;
-  background-color: #0069d9;
+  background-color: #ffffff;
   border-color: #0062cc
 }
 
